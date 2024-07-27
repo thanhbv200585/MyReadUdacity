@@ -14,12 +14,19 @@ const SearchBooks = () => {
       setText(value)
       if (value) {
         search(value).then((books) => {
-          books.forEach((book) => {
-            allBooks.forEach((b) => {
-              (book.id === b.id) ? book.shelf = b.shelf : book.shelf = 'none';
-            });
+          const updatedBooks = books.map((book) => {
+
+            const foundBook = allBooks.find(b => b.id === book.id);
+            // Assign the shelf value accordingly
+            const shelf = foundBook ? foundBook.shelf : 'none';
+            console.log(shelf);
+
+            return {
+              ...book,
+              shelf: shelf
+            };
           });
-          setSearchBooks(books || []);
+          setSearchBooks(updatedBooks || []);
         })
       } else {
         setSearchBooks([]);

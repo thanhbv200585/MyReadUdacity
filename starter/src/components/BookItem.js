@@ -3,6 +3,7 @@ const BookItem = ( {book, onChangeShelf} ) => {
     const selectedOption = e.target.value;
     onChangeShelf(book, selectedOption);
   }
+  console.log(book);
   return (
     <li>
       <div className="book">
@@ -17,8 +18,8 @@ const BookItem = ( {book, onChangeShelf} ) => {
             }}
           ></div>
           <div className="book-shelf-changer">
-            <select onChange={handleClick} value={book.shelf ? book.shelf : 'none'}>
-              <option value="none" disabled>
+            <select onChange={handleClick} value={book.shelf ? book.shelf : "none"}>
+              <option value="move " disabled>
                 Move to...
               </option>
               <option value="currentlyReading">Currently Reading</option>
