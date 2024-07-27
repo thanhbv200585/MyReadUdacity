@@ -16,9 +16,7 @@ const SearchBooks = () => {
         search(value).then((books) => {
           books.forEach((book) => {
             allBooks.forEach((b) => {
-              if (book.id === b.id) {
-                book.shelf = b.shelf
-              }
+              (book.id === b.id) ? book.shelf = b.shelf : book.shelf = 'none';
             });
           });
           setSearchBooks(books || []);
