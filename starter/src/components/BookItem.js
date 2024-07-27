@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 const BookItem = ( {book, onChangeShelf} ) => {
   const handleClick = (e) => {
     const selectedOption = e.target.value;
@@ -15,7 +13,7 @@ const BookItem = ( {book, onChangeShelf} ) => {
               width: 128,
               height: 193,
               backgroundImage:
-                `url(${book.imageLinks.smallThumbnail})`,
+                `url(${book.imageLinks ? book.imageLinks.smallThumbnail : ''})`,
             }}
           ></div>
           <div className="book-shelf-changer">
